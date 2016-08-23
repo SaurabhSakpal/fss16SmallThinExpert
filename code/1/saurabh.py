@@ -1,4 +1,8 @@
 #!/usr/bin/python
 
-def multiply(firstNumber, secondNumber):
-	return firstNumber * secondNumber
+import utest
+
+@utest.ok
+def multiply():
+	return 4 * 5
+
