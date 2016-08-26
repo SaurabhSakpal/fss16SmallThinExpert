@@ -1,12 +1,11 @@
 #!/usr/bin/python
-import utest, saurabh, gurunath
+import utest, saurabh, gurunath, shivani
 from saurabh import multiply
 
 @utest.ok
-def add() :
-	return 4 + 5
-
-print "Value of addition is ", add()
+def to_fail() :
+	"A  test that fails"
+	assert 1==2
 
 print "Value of multiplication is ", multiply()
 
