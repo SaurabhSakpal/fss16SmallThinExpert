@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import utest, saurabh
+import utest, saurabh, gurunath
 from saurabh import multiply
 
 @utest.ok
