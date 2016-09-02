@@ -15,7 +15,9 @@ Cuixiong Hu,  Iulian Neamtiu. 2011. Automating GUI Testing for Android Applicati
 **ii5 Concurrency Errors** : Errors that occur due to the interaction of multiple processes or threads. 
 
 ##iii1 Motivation: 
-The motivation for this work comes from the growing sales of Android devices and an increasing demand for suitable techniques and tools to support their testing. Also authors believe that Android application testing is challenging, though developed using Java, they differ from standard Java client-server model.
+Nowadays, people increasingly rely on mobile applications for computational needs. Google Android is the most popular mobile platform, hence the reliability of Android applications is becoming increasingly important. Traditional verification techniques cannot be used for determining the correctness of many Android issues because of the nature of the Android's architecture. Also, the density of the GUI issues seen in the mobile application is way higher compared to those seen in desktop applications.  
+
+Thus this was the motivation for developing an automated GUI testing framework for Android applications.
 
 ##iii2 Related Work: 
 Characterizing failures in mobile oses: A case study with android and symbian by A. Kumar Maji, K. Hao, S. Sultana, and S. Bagchi. 2010
