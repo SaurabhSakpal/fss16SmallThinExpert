@@ -29,7 +29,7 @@ Android Ripper was compared against Monkey, a random testing approach. Both the 
 
 
 ##iii4 Future Work
-AndoridRipper achieves 38% line of code coverage and it takes around 5 hours for Round 2 and Round 3. Future work can focus on achieving higher code coverage and taking lesser time.  
+The paper suggests two  
 
 ##Scope for improvement
 
