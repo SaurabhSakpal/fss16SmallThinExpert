@@ -18,33 +18,42 @@ Cuixiong Hu,  Iulian Neamtiu. 2011. Automating GUI Testing for Android Applicati
 The motivation for this work comes from the growing sales of Android devices and an increasing demand for suitable techniques and tools to support their testing. Also authors believe that Android application testing is challenging, though developed using Java, they differ from standard Java client-server model.
 
 ##iii2 Related Work: 
-A model based approach for Android GUI Testing by Takala et al. 
-The technique describes GUI of an application by state machine. After a detailed static or dynamic analysis a formal model is obtained. Generation algorithms then use this detailed model to produce test cases.
+Characterizing failures in mobile oses: A case study with android and symbian by A. Kumar Maji, K. Hao, S. Sultana, and S. Bagchi. 2010
+This paper studied bugs in Android and Symbian operating systems. The major focus of this paper has been grouping the bugs on the basis of operating system layer they are found on. Also, the paper doesn't do semantic categorizations of the bugs. Semantic categorization means  classifying the bugs into types like concurrency bug, I/O bug, API bug etc. This paper also studies the bug fixes to find how many lines of code was required to fix the bug and how it could have been avoided.
 
-A GUI Crawling-Based Technique for Android Mobile Application by D. Amalfitano et al.
-This approach uses a tool that explores application GUI by simulating user events and constructing a GUI tree model
+Model-based testing through a GUI: Formal Approaches to Software Testing by A. Kervinen, M. Maunumaa, T. Paakkonen and M. Katara. 2006
+The paper present a formal model and architecture for testing concurrently running applications. This model is more rigorous and powerful. The model was put to test against mobile applications running on the Symbian platform and it found 6 bugs in those applications.
+
+Guitar – a gui testing framework on sourceforge.com. 2010
+GUITAR is a GUI testing framework for Java and Microsoft Windows applications. It is unclear if the framework can be used for Android applications because architecture of Android applications is way different from that of the MS Windows and Java application.
+
+Generating event sequence-based test cases using gui runtime state feedback by X. Yuan and A. M. Memon. 2010
+This paper suggests a framework to generate event-sequence based test cases for GUI applications. The framework takes a model-based approach for testing GUI-based applications. It can generate test cases automatically using a structural event generation graph. The framework  targets Java desktop applications, which are different from the Android mobile environment.
 
 ##iii3 Baseline results
 Android Ripper was compared against Monkey, a random testing approach. Both the techniques were tested on an open-source Android application called “Wordpress for Android”. Release r394 of the Android application was used for testing. This release source code consists of 6 java packages, a total of 71 files containing 334 classes and 1,489 methods and total of 10017 executable lines of code. Monkey took 4.46 hours to find 3 crashes corresponding to bug B2 and reached 25.27 % line of code coverage. On the other hand Android Ripper took less than 5 hours to find 8 crashes related to 4 bugs and reached 38 % line of code coverage.   
 
 
 ##iii4 Future Work
-The paper suggests two  
+This paper suggests two types of improvements. Firstly, not all errors are handled by the current framework. The future framework will try and handle all possible errors that are seen the android applications which will help in identifying much more defects. Some of the current unhandled exceptions are I/O exceptions, concurrency exceptions, API exceptions.
+
+Secondly, the future work will try and extend the current framework to include model-based verification onto java static analysis tools. This will help in identifying pattern and state machine violations at the compile time.
 
 ##Scope for improvement
 
-iv1 The paper states that model development is the biggest problem in using the existing work for Android application testing and hence there was a need for something like Android ripper. But authors do not clearly specify how Android ripper leverages the existing work.
+iv1 The framework described in the paper chooses an event  at random. from the available ones. Once the event is successfully completed, the activity of the Android application changes. The paper, however, fails to explain once the event is chosen randomly, what happens to the other events. Do we keep them in a pipeline or do we flush them? 
 
-iv2 The metric used for comparing the two technique were line of code coverage and defect detection effectiveness. There can be more metrics that can be used for comparison but no other metric was mentioned by the authors. Paper could have also discussed why these particular metrics were selected from the bunch of available metrics. Also we feel it would have been better if Android Ripper and Monkey were compared on all possible metrics. This would have given more insight about weaknesses of the new automated testing framework.
+iv2 The framework entirely depends on log parsing to figure out bugs and exception. To figure out all possible exceptions we need to write several regex rules to match the exception seen in the log to one of the valid exceptions. This method to identify the bugs is inefficient. There is a high chance of missing out on a bug if we missed a regex rule to match a particular exception.  
 
-iv3 Authors failed to explain why they selected “Wordpress for Android” for testing their techniques. They mentioned that this android application is open source but apart from that no other explanation was given for choosing it. It would have been great if they could have discussed about the factors they considered while making this choice.
-
-iv4 Also, the authors mentioned about using Robotium Framework and the Android Instrumentation class for implementing Android Ripper. We feel the paper could have been more clear about how these frameworks were actually used in implementation.  
+iv3 Although 10 applications were selected by the authors in the paper for bug study and testing the framework. But none of the applications required sign-in. Sign-in is very important because it can cause session based bugs.
 
 ##Connection to other papers
 
-An event-flow model of GUI-based applications for testing by Atif M. Memon et al., 2007. 
-AndroidRipper takes the idea of graphical object with fixed set of properties from this work. At any set of such properties constitutes the state of the GUI 
+Racerx: effective, static detection of race conditions and deadlocks by D. Engler and K. Ashcraft
+The authors have planned to use this paper for extending the framework to find the concurrency bug in android applications. Concurrency bugs are one of the most seen bugs in the today's multithreaded world.
 
-Automating GUI testing for Android applications by Cuixiong Hu et al., 2011.
-This Android specific testing technique that is event-based and focuses on Activity, event and  dynamic type of error is used in AndroidRipper.
+Characterizing failures in mobile oses: A case study with android and symbian by A. Kumar Maji, K. Hao, S. Sultana, and S. Bagchi. 2010
+This paper is one of the motivations for the Android Automated GUI testing framework. This paper shows that the density of the bugs seen in the GUI of the mobile applications is way higher than the density of the bugs seen in the Desktop Applications. 
+
+
+
