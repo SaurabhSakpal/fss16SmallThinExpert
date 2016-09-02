@@ -1,16 +1,18 @@
 ##Title
  
-Domenico Amalfitano , Anna Rita Fasolino, Porfirio Tramontana, Salvatore De Carmine, Atif M. Memon. 2012. Using GUI ripping for automated testing of Android applications. In proceedings of the 27th IEEE/ACM International Conference on Automated Software Engineering 
+Cuixiong Hu,  Iulian Neamtiu. 2011. Automating GUI Testing for Android Applications. In proceedings of the 6th International Workshop on Automation of Software Test 
 
 ##Keywords
 
 **ii1 Testing Automation** : A testing scenario where derivation of test cases for both crash and regression testing can be automated.
 
-**ii2 Event** : A user action like a command input or a data input
+**ii2 API Errors** : Errors caused by incompatibilities between the API version assumed by the application and the API version provided by the system
 
-**ii3 Action** : Zero or more data input events followed by single command input events.
+**ii3 Activity Errors** : Errors caused due to incorrect implementations of activity protocols.
 
-**ii4 Task** : A couple (action, GUI state). A task is executed by reaching the GUI state and then performing the action
+**ii4 Unhandled Exception** : Exceptions that user code does not catch and causes the application to crash.
+
+**ii5 Concurrency Errors** : Errors that occur due to the interaction of multiple processes or threads. 
 
 ##iii1 Motivation: 
 The motivation for this work comes from the growing sales of Android devices and an increasing demand for suitable techniques and tools to support their testing. Also authors believe that Android application testing is challenging, though developed using Java, they differ from standard Java client-server model.
