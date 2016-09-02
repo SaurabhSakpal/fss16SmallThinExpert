@@ -33,7 +33,7 @@ Generating event sequence-based test cases using gui runtime state feedback by X
 This paper suggests a framework to generate event-sequence based test cases for GUI applications. The framework takes a model-based approach for testing GUI-based applications. It can generate test cases automatically using a structural event generation graph. The framework  targets Java desktop applications, which are different from the Android mobile environment.
 
 ##iii3 Baseline results
-Android Ripper was compared against Monkey, a random testing approach. Both the techniques were tested on an open-source Android application called “Wordpress for Android”. Release r394 of the Android application was used for testing. This release source code consists of 6 java packages, a total of 71 files containing 334 classes and 1,489 methods and total of 10017 executable lines of code. Monkey took 4.46 hours to find 3 crashes corresponding to bug B2 and reached 25.27 % line of code coverage. On the other hand Android Ripper took less than 5 hours to find 8 crashes related to 4 bugs and reached 38 % line of code coverage.   
+The verification technique turned out to be effective. The framework was able to detect all 8 activity errors that have already been reported, as well as 3 new activity errors in Andoku and Connectbot. The Framework also detected 24 event errors (18 existing bugs and 6 new bugs). However, it could not detect three errors but the errors were not reproducible either. The technique successfully detected all type errors, but it could not find any new ones. The authors feel that type errors are critical and cause the applications to crash immediately, as a result these bugs will be fixed immediately.  
 
 
 ##iii4 Future Work
