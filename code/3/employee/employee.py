@@ -1,4 +1,4 @@
-from __future__ import division,print_function
+from __future__ import division
 import sys,random,os
 sys.dont_write_bytecode=True
 
@@ -21,9 +21,5 @@ if __name__=="__main__":
 	emp3 = Employee('Ron', 21)
 
 	emp_list = [emp1, emp2, emp3]
-	
-	for e in emp_list.sort():
+	for e in sorted(emp_list):
 		print e
-
-
-		
