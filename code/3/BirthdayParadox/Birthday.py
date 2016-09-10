@@ -30,10 +30,13 @@ def birthdayParadox(numberOfPeople, numberOfSamples) :
 listWithOutDuplicate = [2, 3, 4, 5, 6]
 listWithDuplicate = [2, 3, 4, 5, 6, 4]
 
-print 'Does folowing list : % has duplicates % ',listWithOutDuplicate, has_duplicates(listWithDuplicate)
+print listWithDuplicate, 'This list has duplicates?'
+print has_duplicates(listWithDuplicate)
+print listWithOutDuplicate, 'This list has duplicates?'
 print has_duplicates(listWithOutDuplicate)
 
 numberOfPeople = 23
 numberOfSamples = 100
 
-print birthdayParadox(numberOfPeople, numberOfSamples)
+print 'In a class of 23 students, chances of 2 stdent having same birthday is = ', \
+birthdayParadox(numberOfPeople, numberOfSamples)

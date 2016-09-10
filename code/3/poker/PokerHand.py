@@ -164,7 +164,7 @@ def classify(hand):
 def printTable(prob_table,N):
 
 	for hand in prob_table.keys():
-		print hand, float(prob_table[hand])/N
+		print hand.ljust(20).upper(), float(prob_table[hand])/N
 
 
 def find_probability(N):
