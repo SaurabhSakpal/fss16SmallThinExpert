@@ -19,17 +19,34 @@ class PokerHand(Hand):
 		"""
 		self.suits = {}
 		for card in self.cards:
-			self.suits[card.suit] = self.suits.get(card.suit, 0) + 1
+			if card.suit not in self.suits:
+				self.suits[card.suit]= []
+			self.suits[card.suit] += [card.rank]
 
 	def has_flush(self):
 		"""Returns True if the hand has a flush, False otherwise.
 	  
 		Note that this works correctly for hands with more than 5 cards.
 		"""
-		self.suit_hist()
-		for val in self.suits.values():
-			if val >= 5:
+		for card_list in self.suits.values():
+			if len(card_list) >= 5:
 				return True
+		return False
+
+	def has_straight_flush(self):
+		"""Returns True if the hand has a straight flush, False otherwise.
+		"""
+		for card_list in self.suits.values:
+			if len(card_list) < 5:
+				continue
+			count = 1
+			for i in range(2,len(card_list)):
+				if card_list[i] == card_list[i-1]:
+					count += 1
+					if count==5:
+						return True
+				else:
+					count = 1
 		return False
 
 
@@ -43,6 +60,8 @@ if __name__ == '__main__':
 		hand = PokerHand()
 		deck.move_cards(hand, 7)
 		hand.sort()
+		hand.suit_hist()
+
 		print hand
 		print hand.has_flush()
 		print ''
