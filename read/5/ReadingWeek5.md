@@ -7,15 +7,15 @@ How to Effectively Use Topic Models for Software Engineering Tasks? An Approach 
 
 **ii1 LDA** : Latent Dirichlet Allocation (LDA) is a Topic Model used for information retrieval. In LDA, each document is viewed as a mixture of several topics and used to figure out the semantics of the document based on word occurrences.
 
-**ii2 Topic Models** : Statistical model that is used to find hidden semantic structures in text documents. Topic models are intuitive in nature, and based on the occurrences of each word in the document, the model tries to find the topic of the document.  Probabilistic latent semantic indexing  is the most common topic model in use currently.
+**ii2 Topic Models** : Statistical model that is used to find hidden semantic structures in text documents. Topic models are intuitive in nature, and based on the occurrences of each word in the document. Topic models try to find the topic of the document. Probabilistic latent semantic indexing  is the most common topic model in use currently.
 
-**ii3 Genetic Algorithms** : Genetic Algorithms (GA) is a metaheuristic approach based on the process of natural selection and belongs to the class of evolutionary algorithms. GA consists of fours parts namely, generation, natural selection, mutation and crossover.
+**ii3 Genetic Algorithms** : Genetic Algorithms (GA) is a metaheuristic approach based on the process of natural selection and belongs to the class of evolutionary algorithms. GA consists of fours parts namely: generation, natural selection, mutation and crossover.
 
 ##iii1. Motivation:
 
-Topic Models are Information Retrieval methods that have recently been used to perform analysis of essential software engineering tasks. Unfortunately, Topic models, in all these approaches, have been used on software artifacts in a similar manner as they were used on natural language documents because the underlying assumption was that source code and natural language documents are similar. However, the results have been debatable and are not as expected always.
+Topic Models are information retrieval methods that have recently been used to perform analysis of essential software engineering tasks. Unfortunately, Topic models, in all these approaches, have been used on software artifacts in a similar manner as they were used on natural language documents because the underlying assumption was that source code and natural language documents are similar. However, the results have been debatable and are not always as expected.
 
-Source Code is repetitive and can be predicted, unlike natural language documents. Topic models designed for natural language model requires to find optimal configuration but finding such configuration is very hard. Also, ad-hoc heuristic based methods result in non-optimal solutions. So it is necessary to take advantage of predictability and repetitive nature of source code and using genetic algorithms can definitely help in doing so.
+Source Code is repetitive and can be predicted, unlike natural language documents. Topic models designed for natural language model requires to find optimal configuration. But finding such configuration is very hard. Also, ad-hoc heuristic based methods result in non-optimal solutions. So it is necessary to take advantage of predictability and repetitive nature of source code and using genetic algorithms can definitely help in doing so.
 
 ##iii2. Future Work:
 
