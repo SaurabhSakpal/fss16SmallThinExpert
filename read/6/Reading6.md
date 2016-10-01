@@ -11,7 +11,6 @@ ii2. Source Code Preprocessing: Preprocessing is done to the code so that sense 
 
 ii3. NLP Techniques: These are the techniques that are used for source code preprocessing. NLP techniques act as the means to provide input for IR techiques to be applied.
 
-**ii1**
 ##iii1. Motivation: In a professional environment, program compreshension is a challenging task especially because the source code is a small percentage of the total. Some part of structured data also contains unstructured data like comments, identifiers etc which are used to make sense between the various entities. A common technique using the structured data is to create system dependency graph, object oriented class and member dependency class. Now, unstructured data is more difficult to be made sense of. This requires some preprocessing (NLP) and then processing can be done (IR). One such model is LDA.
 
 Preprocessing using NLP is particularly important for this task because a code by  itself comprises a lot of components that can distract the IR operations. The primary aim is to obtain the programming sense and the developer's intent using the identifiers and comments, string literals etc. 
