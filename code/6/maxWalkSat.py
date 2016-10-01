@@ -1,7 +1,9 @@
 import random, math
 
+#This code attempts to solve 2-SAT problem using MaxWalkSat
+
 operator = {0:'|', 1: '&'}
-max_tries = 10000
+max_tries = 1000
 max_changes = 10
 
 def printSolution(solution):
@@ -115,7 +117,7 @@ def maxWalkSat(expression, signs, num_vars, insanity=0.3):
 
 if __name__ == '__main__':
 	num_vars = 6
-	num_clauses = 20
+	num_clauses = 200
 	expression, signs = generateExpression(num_clauses,num_vars)
 	printExpression(expression, signs)
 	solution = maxWalkSat(expression,signs,num_vars)
