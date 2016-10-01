@@ -1,4 +1,4 @@
-# Code for week 6
+# Code for week 5
 
 ### Output for shivani_fsms.py
 ![Part 1](https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/code/5/screenshots/fsms.png)
