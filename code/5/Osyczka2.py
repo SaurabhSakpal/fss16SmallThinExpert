@@ -57,30 +57,8 @@ def generate_one():
 		if is_valid(*solution):
 			return solution
 
-#point = generate_one()
-#print point
-#print score(*point)
-#415
-
-
-#min_score = 0
-#for i in xrange(10000) :
-#	point = generate_one()
-#	if i % 1000 == 0 :	
-#		print i
-#	if min_score > score(*point):
-#		min_score = score(*point)
-
-#print min_score
-#point = [10, 0, 5, 0, 1, 0]
-#print is_valid(*point)
-
-random_part = random.sample(range(6), random.randint(1,6))
-print random_part
-one_random_decision = random.choice(random_part)
-print one_random_decision
-
 def getRandomValidPoint(point, randomPart):
+	""" randomly changes a random part of a given point"""
 	maxTries = 250
 	try_count = 0;
 	while True and maxTries > try_count:
@@ -94,12 +72,15 @@ def getRandomValidPoint(point, randomPart):
 
 
 
-def maxWalkSat(maxTries=20, maxRounds=100, threshold=-400, probability=0.5):
+def maxWalkSat(maxTries=20, maxRounds=20, threshold=-1000, probability=0.5):
+	global_best = 0;
+	global_point = [];
 	for i in xrange(maxTries) :
 		current_point = generate_one()
 		current_solution = score(*current_point)
 		best_point = current_point		
 		best_solution = current_solution
+		value = str(i)+". "
 		for j in xrange(maxRounds):
 			# check if the solution is better than required threshold
 			if current_solution <= threshold :
@@ -117,7 +98,11 @@ def maxWalkSat(maxTries=20, maxRounds=100, threshold=-400, probability=0.5):
 						if tempSolution < best_solution:
 							best_solution = tempSolution
 							best_point = pointNew
+							value += "!"
+					else:
+						value += "?"
 				else :
+					flag = True
 					for neighbour_value in xbounds[one_random_decision]:
 						pointNew = copy.deepcopy(current_point)
 						pointNew[one_random_decision] = neighbour_value;
@@ -129,8 +114,16 @@ def maxWalkSat(maxTries=20, maxRounds=100, threshold=-400, probability=0.5):
 								if tempSolution < best_solution:
 									best_solution = tempSolution
 									best_point = pointNew
+									value += "!"
+									flag = False;
 								break;
-	return (best_solution, best_point)
+					if flag:
+						value+="."
+		if global_best > best_solution:
+			global_best = best_solution
+			global_point = best_point
+		print value + " : " + str(best_solution)
+	return (global_best, global_point)
 
 a = maxWalkSat()
 print a[0]
