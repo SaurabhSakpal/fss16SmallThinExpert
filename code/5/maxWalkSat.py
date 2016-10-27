@@ -1,5 +1,5 @@
 import random, math
-
+from model import *
 #This code attempts to solve 2-SAT problem using MaxWalkSat
 
 operator = {0:'|', 1: '&'}
