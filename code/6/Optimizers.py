@@ -1,4 +1,4 @@
-from model import *
+from models import *
 
 class simulatedAnnealing():
 	def __init__(self, model):
@@ -6,7 +6,7 @@ class simulatedAnnealing():
 		self.solution = model.generate_one()
 
 	def say(x):
-	    print(x, end="")
+	    print(x)
 
 	def probability(e, en, ratio):
 	    """ This method calculates the probability by which we do random jump """

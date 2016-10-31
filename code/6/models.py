@@ -3,7 +3,7 @@ import copy
 
 class Schaffer(O):
     def __init__(self):
-        decisions = [Decision('x',-100000,100000)]
+        self.decisions = [Decision('x',-100000,100000)]
         self.threshold = 0
         
     @staticmethod
@@ -20,8 +20,7 @@ class Schaffer(O):
             return True
         return False 
 
-    @staticmethod
-    def generate_one(point):
+    def generate_one(self):
         point = Point([random_value(d.low, d.high) for d in self.decisions])
         return point
 
@@ -50,7 +49,7 @@ class Schaffer(O):
 
 class Osyczaka2(O):
     def __init__(self):
-        decisions = [Decision('x1',0,10), Decision('x2',0,10), Decision('x3',1,5), Decision('x5',1,5), Decision('x4',0,6), Decision('x6',0,10)]
+        self.decisions = [Decision('x1',0,10), Decision('x2',0,10), Decision('x3',1,5), Decision('x5',1,5), Decision('x4',0,6), Decision('x6',0,10)]
         self.threshold = 0
         
     def evaluate(point):
@@ -59,6 +58,7 @@ class Osyczaka2(O):
             point.objectives = [self.f1(*point.decisions),self.f2(*point.decisions)]
         return point.objectives
     
+    @staticmethod
     def is_valid(x1, x2, x3, x4, x5, x6):
         """ This method returns if selected points are valid or not """
         # g1
@@ -96,11 +96,11 @@ class Osyczaka2(O):
 
         return f1(*point.decisions) + f2(*point.decisions); 
 
-    @staticmethod
-    def generate_one(point):
+
+    def generate_one(self):
         while True: 
             point = Point([random_value(d.low, d.high) for d in self.decisions])
-            if self.is_valid(*point):
+            if self.is_valid(*point.decisions):
                 return point
 
     @staticmethod
@@ -125,8 +125,8 @@ class Osyczaka2(O):
 
 class Kursawe(O):
     def __init__(self):
-        n = random.randint(3,8)
-        decisions = [Decision('',-5,5)]*n
+        self.n = random.randint(3,8)
+        self.decisions = [Decision('',-5,5)]*n
         self.threshold = 0
         
     @staticmethod
@@ -142,8 +142,7 @@ class Kursawe(O):
                 return False
         return True
 
-    @staticmethod
-    def generate_one(point):
+    def generate_one(self):
         point = Point([random_value(d.low, d.high) for d in self.decisions])
         return point
 
