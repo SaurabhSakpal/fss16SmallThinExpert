@@ -25,7 +25,7 @@ def is_valid(x1, x2, x3, x4, x5, x6):
 	if 4 - ((x3 - 3)**2) - x4 < 0:
 		return False
 	#g6
-	if (x5 - 3)**3 + x6 - 4:
+	if (x5 - 3)**3 + x6 - 4 < 0:
 		return False
 	return True
 

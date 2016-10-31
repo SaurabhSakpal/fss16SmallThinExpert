@@ -1,6 +1,9 @@
+from __future__ import print_function
+from __future__ import division
 from models import *
+import inspect
 
-class simulatedAnnealing():
+class SimulatedAnnealing:
 	def __init__(self, model):
 		self.model = model
 		self.solution = model.generate_one()
@@ -8,11 +11,15 @@ class simulatedAnnealing():
 	def say(x):
 	    print(x)
 
-	def probability(e, en, ratio):
+	def probability(self, e, en, ratio):
 	    """ This method calculates the probability by which we do random jump """
+	    #print(e,en,ratio)
 	    return pow( math.e, (e-en) / ratio )
+
+	def run(self):
+		self.simulatedAnnealing()
 	    
-	def simulatedannealing():
+	def simulatedAnnealing(self):
 	    print("### saDemo ##################################################");
 	    print("# Basic Study")
 	    print("!!! Schaffer \n \n")
@@ -20,21 +27,23 @@ class simulatedAnnealing():
 
 	    kmax = 4000
 	    s = self.solution
-	    e = model.energy(s)
+	    self.model.evaluate(s)
+	    e = self.model.energy(s)
 	    eb = e
 	    #print(e)
 	    sb = s
-	    k = 0
+	    k = 1
 	    sd = 1
-	    emax = model.threshold
+	    emax = self.model.threshold
 	    random.seed(sd)
 	    say('\n')
 	    say(str(k) + ', ')
-	    say(str(sb) + ', ')
+	    #say(str(sb) + ', ')
 	    
 	    while e > emax and k < kmax:
-	        sn = model.neighbor(s)
-	        en = model.energy(sn)
+	        sn = self.model.neighbor(s)
+	        self.model.evaluate(sn)
+	        en = self.model.energy(sn)
 
 	        if en < eb:
 	            # new best solution has been found
@@ -48,26 +57,29 @@ class simulatedAnnealing():
 	            e = en
 	            say('+')
 	            
-	        elif probability(e, en, (float(k)/float(kmax))) < random.random():
+	        elif self.probability(e, en, (float(k)/float(kmax))) < random.random():
 	            # make a random jump to escape the local maxima            
-	            s = model.generate_one()
-	            e = model.energy(s)
+	            s = self.model.generate_one()
+	            self.model.evaluate(s)
+	            e = self.model.energy(s)
 	            say('?')
 	        
 	        k += 1
 	        say('.')
 	        if k % 25 == 0:
 	            say('\n')
-	            say(str(k) + ', ')
-	            say(str(sb) + ', ')
+	            #say(str(k) + ', ')
+	            #say(str(sb) + ', ')
 	    say("\n\ne : "+str(eb))
 	    say("\nx : "+str(sb)+"\n\n")
 
 
 
-class maxWalkSat():
+class MaxWalkSat:
 
 	def __init__(self, model):
+		#print(model)
+		#inspect.getargspec(self.__init__)
 		self.model = model
 		self.solution = model.generate_one()
 
@@ -84,19 +96,26 @@ class maxWalkSat():
 	# 			return newPoint
 	# 		try_count +=1
 	# 	return point
+	
+	def run(self):
+		self.maxWalkSat()
 
-	def maxWalkSat(maxTries=20, maxRounds=20, probability=0.5):
+	def maxWalkSat(self, maxTries=20, maxRounds=20, probability=0.5):
 		global_best = 0;
 		global_point = [];
+		#print("hello world")
 		for i in xrange(maxTries) :
+			#print("outer")
 			current_point = self.solution
-			current_solution = model.energy(*current_point)
+			self.model.evaluate(current_point)
+			current_solution = self.model.energy(current_point)
 			best_point = current_point		
 			best_solution = current_solution
 			value = str(i)+". "
 			for j in xrange(maxRounds):
+				#print("	inner")
 				# check if the solution is better than required threshold
-				if current_solution <= model.threshold :
+				if current_solution <= self.model.threshold :
 					return (current_solution, current_point) 
 				else :
 					#else find a random part of the current soltuion
@@ -104,8 +123,9 @@ class maxWalkSat():
 					# random_part = random.sample(range(n), random.randint(1, n))
 					# one_random_decision = random.choice(random_part)
 					if random.random() < probability :
-						pointNew = model.randomNeighbor()
-						tempSolution = model.energy(*pointNew)
+						pointNew = self.model.randomNeighbor()
+						self.model.evaluate(pointNew)
+						tempSolution = self.model.energy(pointNew)
 						if tempSolution < current_solution :
 							current_solution = tempSolution
 							current_point = pointNew
@@ -119,8 +139,10 @@ class maxWalkSat():
 							value += '.'
 					else :
 						flag = True
-						pointNew = model.neighbor()
-						tempSolution = model.energy(*pointNew)
+						pointNew = self.model.neighbor(current_point)
+						#print(pointNew)
+						self.model.evaluate(pointNew)
+						tempSolution = self.model.energy(pointNew)
 						if tempSolution < current_solution :
 							current_solution = tempSolution
 							current_point = pointNew;
@@ -137,5 +159,5 @@ class maxWalkSat():
 			if global_best > best_solution:
 				global_best = best_solution
 				global_point = best_point
-			print value + " : " + str(best_solution)
+			print(value + " : " + str(best_solution))
 		return (global_best, global_point)
