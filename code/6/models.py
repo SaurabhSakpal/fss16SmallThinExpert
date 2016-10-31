@@ -126,7 +126,7 @@ class Osyczaka2(O):
 class Kursawe(O):
     def __init__(self):
         self.n = random.randint(3,8)
-        self.decisions = [Decision('',-5,5)]*n
+        self.decisions = [Decision('',-5,5)] * self.n
         self.threshold = 0
         
     @staticmethod
