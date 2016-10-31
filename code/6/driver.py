@@ -1,12 +1,13 @@
-from Optimizers import *
+from optimizers import *
 
 #models = [Schaffer,Osyczaka2,Kursawe]
 models = [Osyczaka2]
-#Optimizers = [MaxWalkSat, SimulatedAnnealing]
-Optimizers = [SimulatedAnnealing]
+#optimizers = [MaxWalkSat, SimulatedAnnealing]
+optimizers = [MaxWalkSat]
 
 for model in models:
-	for optimizer in Optimizers:
+	print '************ Executing '+str(model)+'*************'
+	for optimizer in optimizers:
 		modelobj = model()
 		#print modelobj 
 		optobj = optimizer(modelobj)

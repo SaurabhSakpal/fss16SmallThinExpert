@@ -7,8 +7,9 @@ class Schaffer(O):
         #print "Inside Schaffer"
         self.decisions = [Decision('x',-100000,100000)]
         self.threshold = -1
-        
-    def evaluate(self, point):
+    
+    @staticmethod
+    def evaluate(point):
         #print point
         if not point.objectives:
             x = point.decisions[0]
@@ -32,7 +33,7 @@ class Schaffer(O):
         calculates the energy for given point
         energy(f1,f2) = ((f1 + f2) - min) / (max - min)
         """
-        objectives = point.objectives
+        objectives = Schaffer.evaluate(point)
         return (sum(objectives) - 80000)/(1000000 - 80000)
 
     def neighbor(self, point):
@@ -55,10 +56,9 @@ class Osyczaka2(O):
         self.decisions = [Decision('x1',0,10), Decision('x2',0,10), Decision('x3',1,5), Decision('x4',0,6), Decision('x5',1,5), Decision('x6',0,10)]
         self.threshold = -1000
     
-    def evaluate(self, point):
-        if not point.objectives:
-            decs = point.decisions
-            point.objectives = [Osyczaka2.f1(*point.decisions), Osyczaka2.f2(*point.decisions)]
+    @staticmethod
+    def evaluate(point):
+        point.objectives = [Osyczaka2.f1(*point.decisions), Osyczaka2.f2(*point.decisions)]
         return point.objectives
     
     @staticmethod
@@ -98,8 +98,7 @@ class Osyczaka2(O):
     @staticmethod
     def energy(point):
         """ The energy is used to check if the point is better or not """
-
-        return Osyczaka2.f1(*point.decisions) + Osyczaka2.f2(*point.decisions); 
+        return sum(Osyczaka2.evaluate(point)); 
 
 
     def generate_one(self):
@@ -116,13 +115,23 @@ class Osyczaka2(O):
         tempPoint = copy.deepcopy(point)
         decision = self.decisions[index]
         oldValue = point.decisions[index]
-        newValue = random_value(decision.low, decision.high)
-        tempPoint.decisions[index] = newValue
-        while oldValue == newValue or not self.is_valid(*tempPoint.decisions):
+        newValue = oldValue
+        #print 'OLD AND NEW',oldValue,newValue
+        # print 'tempPoint=',tempPoint
+        # print 'oldValue=',oldValue
+        maxTry = 250
+        while maxTry > 0 and (oldValue == newValue or not self.is_valid(*tempPoint.decisions)):
+            #print 'neighbour being mutated.................'
             step = random_value(-1,1)
             newValue = min(max(oldValue+step,decision.low),decision.high)
+            #print 'temp dec b4= ',tempPoint.decisions[index] 
             tempPoint.decisions[index] = newValue
-        return tempPoint
+            maxTry -= 1
+            #print 'temp dec after= ',tempPoint.decisions[index] 
+        # print 'newValue=',newValue
+        # print 'tempPoint=',tempPoint
+        return tempPoint if self.is_valid(*tempPoint.decisions) else point
+
 
     def randomNeighbor(self):
         """ This method returns a random neighbor of the current point """
@@ -135,9 +144,9 @@ class Kursawe(O):
         self.decisions = [Decision('',-5,5)] * self.n
         self.threshold = -100
         
-    def evaluate(self, point):
-        if not point.objectives:
-            point.objectives = [self.f1(point.decisions), self.f2(point.decisions)]
+    @staticmethod
+    def evaluate(point):
+        point.objectives = [Kursawe.f1(point.decisions), Kursawe.f2(point.decisions)]
         return point.objectives
     
     @staticmethod
@@ -157,13 +166,16 @@ class Kursawe(O):
         calculates the energy for given point
         energy(f1,f2) = ((f1 + f2) - min) / (max - min)
         """
-        return sum(point.objectives)
+        return sum(Kursawe.evaluate(point))
 
-    def f1(self, decisions):
+    @staticmethod
+    def f1(decisions):
+        #decisions are point.decisions here
         """ This method returns value of function 1 for given point """
-        return sum([ -10*math.e**(-0.2*(decisions[i]**2 + decisions[i+1]**2)**0.5) for i in range(self.n-1)])
+        return sum([ -10*math.e**(-0.2*(decisions[i]**2 + decisions[i+1]**2)**0.5) for i in range(len(decisions)-1)])
 
-    def f2(self, decisions):
+    @staticmethod
+    def f2(decisions):
         """ This method returns value of function 2 for given point """
         return sum([abs(d)**2 + 5*math.sin(d**4) for d in decisions])
 
@@ -172,13 +184,14 @@ class Kursawe(O):
         tempPoint = copy.deepcopy(point)
         decision = self.decisions[index]
         oldValue = point.decisions[index]
-        newValue = random_value(decision.low, decision.high)
-        tempPoint.decisions[index] = newValue
-        while oldValue == newValue or not self.is_valid(tempPoint):
+        newValue = oldValue
+        maxTry = 250
+        while maxTry>0 and (oldValue == newValue or not self.is_valid(tempPoint)):
             step = random_value(-1,1)
             newValue = min(max(oldValue+step,decision.low),decision.high)
             tempPoint.decisions[index] = newValue
-        return tempPoint
+            maxTry -=1
+        return tempPoint if self.is_valid(*tempPoint.decisions) else point
 
     def randomNeighbor(self):
         """ This method returns a random neighbor of the current point """
