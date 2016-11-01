@@ -191,7 +191,7 @@ class Kursawe(O):
             newValue = min(max(oldValue+step,decision.low),decision.high)
             tempPoint.decisions[index] = newValue
             maxTry -=1
-        return tempPoint if self.is_valid(*tempPoint.decisions) else point
+        return tempPoint if self.is_valid(tempPoint) else point
 
     def randomNeighbor(self):
         """ This method returns a random neighbor of the current point """
