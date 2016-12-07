@@ -27,6 +27,25 @@ Example of a feature model:
 ### 3.3 SAT Solver
 Though we have minimum constraint violations as one of our objectives. On Dr. Menzie’s suggestion we realized, we can SAT solve our generation 0 for all Optimizers (all optimizers we have are GA variations). This will give us 100% valid solutions right in the beginning. But still as the population evolves, mutations are introduced and we get some violations in cross tree constraints (tree structure constraints are not violated as our mutate operator takes care of that). Hence variance for this objective is very low (almost nil). All objectives are given equal weight. This means a single violation will greatly penalize the point fitness. This is desirable as we aim to achieve solutions with zero violations (not just minimum).
 
+## 4. Source Code
+## 5. Results
+## 6. Inference
+## 7. Conclusion
+## 8. References
+[1] http://www.sei.cmu.edu/productlines/
+[2] http://dl.acm.org/citation.cfm?id=1640002
+[3] http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6693104
+[4] http://menzies.us/pdf/13ibea.pdf
+[5] http://dl.acm.org/citation.cfm?id=2190186
+[6] http://www.ssbse.org/2011/fastabstracts/lopex-herrejon.pdf
+[7] http://martinfjohansen.com/papers/Johansen2011c.pdf
+[8] http://dl.acm.org/citation.cfm?id=1449918
+[9] http://gsd.uwaterloo.ca/sites/default/files/vm-2012-berger.pdf
+[10] http://www.iitk.ac.in/kangal/Deb_NSGA-II.pdf
+[11] http://e-collection.library.ethz.ch/eserv/eth:24689/eth-24689-01.pdf
+[12] https://github.com/DEAP/deap
+
+
 
 
 
