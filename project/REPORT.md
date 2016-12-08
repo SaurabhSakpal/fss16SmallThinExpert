@@ -29,6 +29,8 @@ This project attempts multi objective optimization. For each model we have five 
 | Benefits   | Maximize      |    Each feature has a benefit value, indicating how profitable it is for the company. Sum of all feature benefits in the product is the objective. |
 | Defects   | Minimize      |    Each feature has a defect value, indicating how often this feature shows a defect. Sum of all feature defects in the product is the objective. |
 
+*we generate products with 0 violations at the start, mutations introduced in our optimizers introduce minors violations in the later generations. 
+
 
 ### 3.2 Parser
 The SPLOT models are in form of an XML as shown below. We wrote a parser to convert XML models into a tree. Extracting out the explicitly stated cross tree constraints and also the implicit tree structure constraint. 
