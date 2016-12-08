@@ -46,8 +46,9 @@ This project attempts multi objective optimization. For each model we have five 
 ### 3.2 Parser
 The SPLOT models are in form of an XML as shown below. We wrote a parser to convert XML models into a tree. Extracting out the explicitly stated cross tree constraints and also the implicit tree structure constraint. 
 Example of a feature model:
+</p align="center">
 ![alt text](https://github.com/SaurabhSakpal/fss16SmallThinExpert/blob/master/project/data/image2.jpg)
-
+</p>
 ### 3.3 SAT Solver
 Though we have minimum constraint violations as one of our objectives. On Dr. Menzie’s suggestion we realized, we can SAT solve our generation 0 for all Optimizers (all optimizers we have are GA variations). This will give us 100% valid solutions right in the beginning. But still as the population evolves, mutations are introduced and we get some violations in cross tree constraints (tree structure constraints are not violated as our mutate operator takes care of that). Hence variance for this objective is very low (almost nil). All objectives are given equal weight. This means a single violation will greatly penalize the point fitness. This is desirable as we aim to achieve solutions with zero violations (not just minimum).
 
