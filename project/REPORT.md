@@ -22,12 +22,12 @@ This project attempts multi objective optimization. For each model we have five 
 
 
 | Objective        | Maximize/ Minimize           | Description  |
-| ------------- |:-------------:| -----:|
-| Cost     | Minimize | $1600 |
-| Feature Richness      | Maximize      |   $12 |
-| Violations      | Minimize      |   $12 |
-| Benefits   | Maximize      |    $1 |
-| Defects   | Minimize      |    $1 |
+| ------------- |:-------------:| -----:=
+| Cost     | Minimize |Each feature is associated with a cost to company. Cost of a product is sum of cost of all features it has. |
+| Feature Richness      | Maximize      |   Number of features in the model |
+| Violations      | Minimize      |   Number of cross tree constraints violated by the product.* |
+| Benefits   | Maximize      |    Each feature has a benefit value, indicating how profitable it is for the company. Sum of all feature benefits in the product is the objective. |
+| Defects   | Minimize      |    Each feature has a defect value, indicating how often this feature shows a defect. Sum of all feature defects in the product is the objective. |
 
 
 ### 3.2 Parser
