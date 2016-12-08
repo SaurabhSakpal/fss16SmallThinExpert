@@ -185,6 +185,13 @@ rank ,         name ,    med   ,  iqr
    4 ,        spea2 ,    0   ,    0 (            ---| *  ----      ), 0.13,  0.16,  0.17,  0.20,  0.23
 
 ```
+**Comparison of HV,Spread,IGD on three models**  
+<img src="https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/chart_ha.png" width="500" height="250">  
+
+<img src="https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/chart_db.png" width="500" height="250">  
+
+<img src="https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/chart_ca.png" width="500" height="250">  
+
 ## 6. Inference
 ## 7. Conclusion
 ## 8. References
