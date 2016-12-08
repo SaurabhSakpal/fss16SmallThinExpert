@@ -81,11 +81,45 @@ Following performance measures were used to evaluate optimizers against each oth
 
 **Inter Generational Distance (Minimize) :** IGD measure compares, how good is a given pareto frontier according to the best known.The best known frontier is known as true pareto frontier. True pareto frontier is calculated by combining points obtained from all optimisers and selecting best of the lot. We have used CDOM again in this comparison to generate true pareto frontiers. The less the distance from the true pareto frontier, the better the optimizer is.  
 
-
-
 ## 4. Source Code
 The source code for this project with the detailed instructions to run it can be found [here](https://github.com/SaurabhSakpal/ASE_Project).
 ## 5. Results
+* HyperVolume - HomeAutomation  
+nsga2 performs best, while hypervolume is minimum for msga2cdom
+```
+
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    2   ,    1 ( ---  *-       |              ), 1.39,  1.83,  2.14,  2.24,  2.50
+   2 ,           ga ,    3   ,    1 (           -- *| ---          ), 3.13,  3.53,  3.70,  4.21,  4.84
+   3 ,        spea2 ,    4   ,    1 (               |    *--       ), 3.94,  4.13,  4.69,  5.00,  5.34
+   4 ,        nsga2 ,    5   ,    0 (               |       - *--  ), 5.37,  5.60,  5.76,  5.95,  6.27
+
+```
+* Spread - HomeAutomation  
+Spread is maximum for nsga2cdom, ga and spea2 are ranked similar while nsga2 is the worst performer
+```
+
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,        nsga2 ,    0   ,    0 (-  *-          |              ), 0.43,  0.46,  0.48,  0.51,  0.54
+   2 ,        spea2 ,    0   ,    0 (    *-         |              ), 0.46,  0.48,  0.51,  0.55,  0.56
+   2 ,           ga ,    0   ,    0 (  - *-         |              ), 0.47,  0.49,  0.52,  0.53,  0.58
+   3 ,    nsga2Cdom ,    0   ,    0 (    -- *-      |              ), 0.52,  0.57,  0.59,  0.60,  0.66
+
+```
+* IGD - HomeAutomation
+nsga2Cdom performs the best with minimum IGD, followed by nsga2. While spea2 is even worse than a naive GA.
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    0   ,    0 ( *-            |              ), 0.00,  0.01,  0.02,  0.02,  0.04
+   2 ,        nsga2 ,    0   ,    0 (     - *       |              ), 0.05,  0.06,  0.07,  0.07,  0.08
+   3 ,           ga ,    0   ,    0 (          -  * |----          ), 0.10,  0.11,  0.12,  0.16,  0.19
+   4 ,        spea2 ,    0   ,    0 (             --|  * ----      ), 0.13,  0.16,  0.17,  0.20,  0.23
+
+```
+
 ## 6. Inference
 ## 7. Conclusion
 ## 8. References
