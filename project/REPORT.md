@@ -11,7 +11,8 @@ In this project we have done a 5-objective optimization of Software Product Line
 
 ## 3. Implementation
 The workflow of this project is illustrated in Fig 1. The model consist of an XML file obtained from SPLOT. The file is parsed to obtain a feature tree in Python. The parsed tree is traversed from top to bottom to generate a point.  A point is an instance of the population. Several points meeting the model constraints are generated to make up Generation 0 population that is an input to the optimizers. Optimizers run until the specified generations and give a set of points that are meta heuristically best satisfy the given objectives. This set of solution is pareto optimal and hence called the pareto frontier. These pareto frontiers are then analyzed on Hypervolume, Spread and IGD to rank the optimizers.
-![alt text]("https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/ASE%20Architecture%20Diagram.png")
+
+![alt text](https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/ASE%20Architecture%20Diagram.png)
 ### 3.1 Models
 A feature is an end-user-visible behavior of a software product that is of interest to some stakeholder. A feature model represents the information of all possible products of a software product line in terms of features and relationships among them. A feature model is represented as a hierarchically arranged set of features composed by: (1) Relationships between a parent feature and its child features (or subfeatures). (2) Cross-tree constraints that are typically inclusion or exclusion statements. All constraints are represented as CNF clauses. An example of a SPLOT model XMl is shown in the Fig 2. 
 The summary of the three models used is given below:
