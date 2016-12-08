@@ -22,7 +22,7 @@ This project attempts multi objective optimization. For each model we have five 
 
 
 | Objective        | Maximize/ Minimize           | Description  |
-| ------------- |:-------------:| -----:=
+| ------------- |:-------------:| :-----|
 | Cost     | Minimize |Each feature is associated with a cost to company. Cost of a product is sum of cost of all features it has. |
 | Feature Richness      | Maximize      |   Number of features in the model |
 | Violations      | Minimize      |   Number of cross tree constraints violated by the product.* |
