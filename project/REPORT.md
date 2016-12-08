@@ -66,15 +66,25 @@ Genetic Algorithms have been one of the most common evolutionary algorithms in u
 
 **NSGA2Cdom:** In a multiple objective problem binary domination is not the best way to go. As seen in work by Sayyad et al [3], continuous domination performs better for multi objective optimizations. This optimizer is a variant of NSGA2 with domination function replaced by CDOM. Now we can compare on how much a point is better or worse than the other.  
 
+We have used DEAP library [12] for our implementation of these algorithms. We had to provide our own our own cross-over and mutate operators and also a select operator for NSGA2Cdom. A point is represented as a feature tree with boolean values for each node. The cross-over and mutate operator works as shown below. 
+
 **Mutate :** To mutate each node is decided to be changed or not by flipping a coin biased as the mutation probability. If we decide not to mutate the node remains same, but if decide to mutate the whole subtree is generated again (highlighted in blue) following the tree structure constraints (not necessarily cross tree constraint).
 
-**Cross-over :** For each node in a group a fair coin is tossed to select if the node would be taken from mom or dad. The whole subtree from that node is copied exactly into the child. 
+**Cross-over :** For each node in a group a fair coin is tossed to select if the node would be taken from mom or dad. The whole subtree from that node is copied exactly into the child.
 
+### 3.5 Performance Measures
+Following performance measures were used to evaluate optimizers against each other
 
-We have used DEAP library [12] for our implementation of these algorithms. We had to provide our own our own cross-over and mutate operators and also a select operator for NSGA2Cdom. A point is represented as a feature tree with boolean values for each node. The cross-over and mutate operator works as shown below. 
+**Hypervolume (maximize):** The volume inside the pareto frontier is called hypervolume. The more the hypervolume the better it is, since then we have more number of feasible solution for the problem at hand.
+
+**Spread (maximize):** This measure calculates how well the points are spread out on the pareto frontier. More spread indicates diversity of solutions and hence it is desired. The measure was introduced by Deb et al [13]. And is calculated as illustrated below
+
+**Inter Generational Distance (Minimize) :** IGD measure compares, how good is a given pareto frontier according to the best known.The best known frontier is known as true pareto frontier. True pareto frontier is calculated by combining points obtained from all optimisers and selecting best of the lot. We have used CDOM again in this comparison to generate true pareto frontiers. The less the distance from the true pareto frontier, the better the optimizer is.  
+
 
 
 ## 4. Source Code
+The source code for this project with the detailed instructions to run it can be found [here](https://github.com/SaurabhSakpal/ASE_Project).
 ## 5. Results
 ## 6. Inference
 ## 7. Conclusion
