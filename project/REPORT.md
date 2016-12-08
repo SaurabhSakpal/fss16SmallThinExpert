@@ -192,8 +192,8 @@ rank ,         name ,    med   ,  iqr
 <img src="https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/chart_ca.png" width="500" height="250">  
 
 ## 6. Inference
-Nsga2Cdom consistently performs good in IGD comparison, there is only one instance when it loses to NSGA2. For spread nsga2Cdom performs best for homeAutomation and Computadores while it loses to others in DatabaseTools. Nsga2Cdom has a consistent bad performance when it comes to hypervolume. 
-As the number of objectives increase it becomes difficult for BDOM to say a point dominates others because for that the point has to be equal or better across all the objectives. Here we CDOM has an edge because it takes into account scenario if a point is considerably better on many objectives but slightly worse on few.
+Nsga2Cdom consistently performs good in IGD comparison, there is only one instance when it loses to NSGA2. For spread nsga2Cdom performs best for homeAutomation and Computadores while it loses to others in DatabaseTools. Nsga2Cdom has a consistent bad performance when it comes to hypervolume.  
+As the number of objectives increase it becomes difficult for BDOM to say a point dominates others because for that the point has to be equal or better across all the objectives. Here we CDOM has an edge because it takes into account scenario if a point is considerably better on many objectives but slightly worse on few.  
 Hypervolume is good if we have more number of solutions closer to utopia. It might not be good for the cases were we have some point which performs really well on some objectives, but it is an average player ont he other fronts. CDOM has an advantage of selecting such points comapred to the all round average performers. This is the reason we consistenetly get low hypevlumes with Nsga2Cdom.
 
 ## 7. Conclusion
