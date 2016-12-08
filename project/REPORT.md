@@ -199,29 +199,32 @@ Hypervolume is good if we have more number of solutions closer to utopia. It mig
 ## 7. Conclusion
 Though performance of an optimizer depends a lot on the model. Some optimizers are good at discovering the solutions which are average performer on all fronts (objectives), while others like Nsga2Cdom also discover the points which approach utopia not flying in the midway but from the corners. These solutions might be really really good on few objectives, but are just average or may also be poor than the others on the other fronts. Ultimately the question to decide is what kind of solutions does your client seek for. Afterall its the money that matters. 
 ## 8. References
-[1] http://www.sei.cmu.edu/productlines/
+[1] [Software Engineering Institute] (http://www.sei.cmu.edu/productlines/) , Carnegie Mellon University 
 
-[2] http://dl.acm.org/citation.cfm?id=1640002
+[2] Marcilio Mendonca, Moises Branco, Donald Cowan. 2009. S.P.L.O.T. - Software Product Lines Online Tools  
 
-[3] http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6693104
+[3] Abdel Salam Sayyad, Joseph Ingram, Tim Menzies, Hany Ammar. 2013. Scalable Product Line Configuration: A Straw to Break the Camel’s Back  
 
-[4] http://menzies.us/pdf/13ibea.pdf
+[4]  Abdel Salam Sayyad, Tim Menzies, Hany Ammar. 2013. On the Value of User Preferences in Search-Based Software Engineering: A Case Study in Software Product Lines  
 
-[5] http://dl.acm.org/citation.cfm?id=2190186
+[5] Richard Pohl, Kim Lauenroth, Klaus Pohl. 2011. A Performance Comparison of Contemporary Algorithmic Approaches for Automated Analysis Operations on Feature Models  
 
-[6] http://www.ssbse.org/2011/fastabstracts/lopex-herrejon.pdf
+[6]Roberto E. Lopez-Herrejon, Alexander Egyed. 2011. Searching the Variability Space to Fix Model Inconsistencies: A Preliminary Assessment  
 
-[7] http://martinfjohansen.com/papers/Johansen2011c.pdf
+[7] Martin Fagereng Johansen, Øystein Haugen, Franck Fleurey. 2011. Properties of Realistic Feature Models Make Combinatorial Testing of Product Lines Feasible  
 
-[8] http://dl.acm.org/citation.cfm?id=1449918
+[8] Marcilio Mendonca , Andrzej Wasowski , Krzysztof Czarnecki, Donald Cowan. 2008. Efficient Compilation Techniques for Large Scale Feature Models  
 
-[9] http://gsd.uwaterloo.ca/sites/default/files/vm-2012-berger.pdf
+[9] Thorsten Berger, Steven She, Rafael Lotufo, Andrzej W ˛asowski, Krzysztof Czarnecki. 2013. Variability Modeling in the Systems Software Domain  
 
-[10] http://www.iitk.ac.in/kangal/Deb_NSGA-II.pdf
+[10] Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, T. Meyarivan. 2002. A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II  
 
-[11] http://e-collection.library.ethz.ch/eserv/eth:24689/eth-24689-01.pdf
+[11] Eckart Zitzler, Marco Laumanns, and Lothar Thiele. 2001. SPEA2: Improving the Strength Pareto Evolutionary Algorithm 
+[12] Distributed Evolutionary Algorithms in Python (DEAP)  
 
-[12] https://github.com/DEAP/deap
+[13] 2001. Deb, K.: Multi-Objective Optimization using Evolutionary Algorithms. John Wiley and Sons, Chichester  
+
+
 
 
 
