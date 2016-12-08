@@ -119,7 +119,72 @@ rank ,         name ,    med   ,  iqr
    4 ,        spea2 ,    0   ,    0 (             --|  * ----      ), 0.13,  0.16,  0.17,  0.20,  0.23
 
 ```
+* Hypervolume - DatabaseTools  
+The ranking is exactly same as that in homeautomation. nsga2cdom performs worst and nsga2 is best
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    2   ,    1 ( --  *--       |              ), 1.33,  1.67,  2.03,  2.18,  2.50
+   2 ,           ga ,    3   ,    0 (           - *-|---           ), 3.09,  3.40,  3.58,  3.70,  4.51
+   3 ,        spea2 ,    4   ,    1 (             --|    *--       ), 3.52,  4.13,  4.69,  5.00,  5.29
+   4 ,        nsga2 ,    5   ,    0 (               |       - *--  ), 5.32,  5.55,  5.79,  5.96,  6.27
 
+```
+* Spread - DatabaseTools
+nsga2Cdom again performs best for spread, while ga and nsga2 perform equally bad.
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    0   ,    0 ( -- *--        |              ), 0.49,  0.52,  0.54,  0.56,  0.59
+   2 ,        spea2 ,    0   ,    0 (    ---    *  -|----          ), 0.54,  0.60,  0.67,  0.73,  0.84
+   3 ,           ga ,    0   ,    0 (            ---| *  -----     ), 0.70,  0.76,  0.79,  0.84,  0.94
+   3 ,        nsga2 ,    0   ,    0 (               |-   *---      ), 0.76,  0.80,  0.85,  0.86,  0.92
+
+```
+* IGD - DatabaseTools
+Surprisingly all optimizers are ranked equal. But as seen in the distribution nsga2cdom has more values in the lower ranges, so it again outperforms others (though slightly this time).
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    0   ,    0 (---- *  -------|              ), 0.02,  0.04,  0.05,  0.06,  0.11
+   1 ,        nsga2 ,    0   ,    0 (  -- * -       |              ), 0.03,  0.04,  0.05,  0.06,  0.06
+   1 ,           ga ,    0   ,    0 (    -- * --    |              ), 0.04,  0.05,  0.06,  0.07,  0.08
+   1 ,        spea2 ,    0   ,    0 (     -- * ---  |              ), 0.04,  0.06,  0.06,  0.07,  0.09
+
+```
+* Hypervolume - Computadores
+The trend in Hypervolume repeats again as seen in previous models
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,    nsga2Cdom ,    1   ,    0 (-- *--         |              ), 1.07,  1.35,  1.56,  1.75,  2.08
+   2 ,           ga ,    2   ,    1 (    - *--      |              ), 1.67,  1.84,  2.01,  2.19,  2.45
+   3 ,        spea2 ,    2   ,    0 (   ---- * -    |              ), 1.57,  2.13,  2.35,  2.55,  2.76
+   4 ,        nsga2 ,    4   ,    0 (               |   - * -----  ), 3.89,  4.03,  4.23,  4.56,  5.24
+
+```
+* spread - Computadores
+For this model spea2 and nsga2csom perform equally good. 
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,        nsga2 ,    0   ,    0 (  -* --        |              ), 0.47,  0.49,  0.51,  0.54,  0.56
+   2 ,           ga ,    0   ,    0 (          -  *-|              ), 0.62,  0.65,  0.69,  0.71,  0.73
+   3 ,    nsga2Cdom ,    0   ,    0 (        -------| *      ----- ), 0.59,  0.72,  0.76,  0.89,  0.98
+   3 ,        spea2 ,    0   ,    0 (               |---   * ----  ), 0.72,  0.80,  0.84,  0.88,  0.95
+
+```
+* IGD - Computadores
+For a change nsga2 takes over nsga2Cdom in providing the minimum IGD. But ga and spea2 continue to be the worst performer. 
+```
+rank ,         name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,        nsga2 ,    0   ,    0 ( *-            |              ), 0.03,  0.03,  0.04,  0.04,  0.05
+   2 ,    nsga2Cdom ,    0   ,    0 (    - *  -     |              ), 0.06,  0.07,  0.08,  0.10,  0.12
+   3 ,           ga ,    0   ,    0 (         ---* -|--            ), 0.11,  0.13,  0.13,  0.15,  0.18
+   4 ,        spea2 ,    0   ,    0 (            ---| *  ----      ), 0.13,  0.16,  0.17,  0.20,  0.23
+
+```
 ## 6. Inference
 ## 7. Conclusion
 ## 8. References
