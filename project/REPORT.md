@@ -55,6 +55,25 @@ Example of a feature model:
 ### 3.3 SAT Solver
 Though we have minimum constraint violations as one of our objectives. On Dr. Menzie’s suggestion we realized, we can SAT solve our generation 0 for all Optimizers (all optimizers we have are GA variations). This will give us 100% valid solutions right in the beginning. But still as the population evolves, mutations are introduced and we get some violations in cross tree constraints (tree structure constraints are not violated as our mutate operator takes care of that). Hence variance for this objective is very low (almost nil). All objectives are given equal weight. This means a single violation will greatly penalize the point fitness. This is desirable as we aim to achieve solutions with zero violations (not just minimum).
 
+### 3.4 Optimisers
+Genetic Algorithms have been one of the most common evolutionary algorithms in use for optimization. We have used following variants of Genetic Algorithms for the comparison. Each of them differ in just there select operator which decides what all points (equal to population size, k) will survive till the next generation. 
+
+**Naive Genetic Algorithms:** Random points k are picked and taken over to the next generation. 
+
+**NSGA2:** A primary ranking method (like BDOM) based on number of points that dominate a point is used to generate frontiers then a secondary sorting method is used for non-dominating sorting. This is mostly done with a motive of crowd pruning to preserve the diversity. Details can be studied in this work by Deb et al [10].
+
+**SPEA2:** Unlike NSGA2, all individuals are scored by the number of other people they dominate. Two data structures population and archive are maintained. Population is a space for current mutants while archive is a space for good ideas. Population is built partially from archive. Details can be studied in this work by zitzler et al [11].
+
+**NSGA2Cdom:** In a multiple objective problem binary domination is not the best way to go. As seen in work by Sayyad et al [3], continuous domination performs better for multi objective optimizations. This optimizer is a variant of NSGA2 with domination function replaced by CDOM. Now we can compare on how much a point is better or worse than the other.  
+
+**Mutate :** To mutate each node is decided to be changed or not by flipping a coin biased as the mutation probability. If we decide not to mutate the node remains same, but if decide to mutate the whole subtree is generated again (highlighted in blue) following the tree structure constraints (not necessarily cross tree constraint).
+
+**Cross-over :** For each node in a group a fair coin is tossed to select if the node would be taken from mom or dad. The whole subtree from that node is copied exactly into the child. 
+
+
+We have used DEAP library [12] for our implementation of these algorithms. We had to provide our own our own cross-over and mutate operators and also a select operator for NSGA2Cdom. A point is represented as a feature tree with boolean values for each node. The cross-over and mutate operator works as shown below. 
+
+
 ## 4. Source Code
 ## 5. Results
 ## 6. Inference
