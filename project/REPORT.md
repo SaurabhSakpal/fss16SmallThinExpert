@@ -15,7 +15,10 @@ The workflow of this project is illustrated in Fig 1. The model consist of an XM
 ![alt text](https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/ASE%20Architecture%20Diagram.png)
 ### 3.1 Models
 A feature is an end-user-visible behavior of a software product that is of interest to some stakeholder. A feature model represents the information of all possible products of a software product line in terms of features and relationships among them. A feature model is represented as a hierarchically arranged set of features composed by: (1) Relationships between a parent feature and its child features (or subfeatures). (2) Cross-tree constraints that are typically inclusion or exclusion statements. All constraints are represented as CNF clauses. An example of a SPLOT model XML is given below:
+
+
 ![alt_text](https://github.com/SaurabhSakpal/fss16SmallThinExpert/blob/master/project/data/SplotParserXMLCode.png)
+
 
 The summary of the three models used is given below:
 
