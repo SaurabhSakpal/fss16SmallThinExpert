@@ -33,16 +33,27 @@ Though we have minimum constraint violations as one of our objectives. On Dr. Me
 ## 7. Conclusion
 ## 8. References
 [1] http://www.sei.cmu.edu/productlines/
+
 [2] http://dl.acm.org/citation.cfm?id=1640002
+
 [3] http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6693104
+
 [4] http://menzies.us/pdf/13ibea.pdf
+
 [5] http://dl.acm.org/citation.cfm?id=2190186
+
 [6] http://www.ssbse.org/2011/fastabstracts/lopex-herrejon.pdf
+
 [7] http://martinfjohansen.com/papers/Johansen2011c.pdf
+
 [8] http://dl.acm.org/citation.cfm?id=1449918
+
 [9] http://gsd.uwaterloo.ca/sites/default/files/vm-2012-berger.pdf
+
 [10] http://www.iitk.ac.in/kangal/Deb_NSGA-II.pdf
+
 [11] http://e-collection.library.ethz.ch/eserv/eth:24689/eth-24689-01.pdf
+
 [12] https://github.com/DEAP/deap
 
 
