@@ -19,6 +19,8 @@ The summary of the three models used is given below:
 For a feature model, decisions are the various features in the model. All decisions are boolean, indicating whether a feature is selected or not. 
 #### 3.1.2 Objectives
 This project attempts multi objective optimization. For each model we have five conflicting objectives, as summarized below. Some of the objectives have been taken from this prior work [4].
+
+
 | Objective        | Maximize/ Minimize           | Description  |
 | ------------- |:-------------:| -----:|
 | Cost     | Minimize | $1600 |
