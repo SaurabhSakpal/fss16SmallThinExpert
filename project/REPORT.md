@@ -130,7 +130,7 @@ rank ,         name ,    med   ,  iqr
 
 ```
 * Spread - DatabaseTools
-nsga2Cdom again performs best for spread, while ga and nsga2 perform equally bad.
+nsga2Cdom again performs worst for spread, while ga and nsga2 perform best and ar ealmost equal.
 ```
 rank ,         name ,    med   ,  iqr 
 ----------------------------------------------------
@@ -192,7 +192,12 @@ rank ,         name ,    med   ,  iqr
 <img src="https://raw.githubusercontent.com/SaurabhSakpal/fss16SmallThinExpert/master/project/data/chart_ca.png" width="500" height="250">  
 
 ## 6. Inference
+Nsga2Cdom consistently performs good in IGD comparison, there is only one instance when it loses to NSGA2. For spread nsga2Cdom performs best for homeAutomation and Computadores while it loses to others in DatabaseTools. Nsga2Cdom has a consistent bad performance when it comes to hypervolume. 
+As the number of objectives increase it becomes difficult for BDOM to say a point dominates others because for that the point has to be equal or better across all the objectives. Here we CDOM has an edge because it takes into account scenario if a point is considerably better on many objectives but slightly worse on few.
+Hypervolume is good if we have more number of solutions closer to utopia. It might not be good for the cases were we have some point which performs really well on some objectives, but it is an average player ont he other fronts. CDOM has an advantage of selecting such points comapred to the all round average performers. This is the reason we consistenetly get low hypevlumes with Nsga2Cdom.
+
 ## 7. Conclusion
+Though performance of an optimizer depends a lot on the model. Some optimizers are good at discovering the solutions which are average performer on all fronts (objectives), while others like Nsga2Cdom also discover the points which approach utopia not flying in the midway but from the corners. These solutions might be really really good on few objectives, but are just average or may also be poor than the others on the other fronts. Ultimately the question to decide is what kind of solutions does your client seek for. Afterall its the money that matters. 
 ## 8. References
 [1] http://www.sei.cmu.edu/productlines/
 
