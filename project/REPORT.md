@@ -15,6 +15,13 @@ The workflow of this project is illustrated in Fig 1. The model consist of an XM
 A feature is an end-user-visible behavior of a software product that is of interest to some stakeholder. A feature model represents the information of all possible products of a software product line in terms of features and relationships among them. A feature model is represented as a hierarchically arranged set of features composed by: (1) Relationships between a parent feature and its child features (or subfeatures). (2) Cross-tree constraints that are typically inclusion or exclusion statements. All constraints are represented as CNF clauses. An example of a SPLOT model XMl is shown in the Fig 2. 
 The summary of the three models used is given below:
 
+| Model        | Number of Features           | Number of Cross Tree Constraints  |
+| ------------- |:-------------:| :-----:|
+| Home Automation     | 48 | 5 |
+| Computadores      | 45      |   9 |
+| Database Tools | 70      |    2 |
+
+
 #### 3.1.1 Decisions
 For a feature model, decisions are the various features in the model. All decisions are boolean, indicating whether a feature is selected or not. 
 #### 3.1.2 Objectives
